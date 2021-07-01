@@ -33,11 +33,11 @@
                         <td th:text="${(iter.index + 1) + (30 * (currentPage -1))}"></td>
                         <td th:text="*{jobTitle}"></td>
                         <td th:text="*{approvedDate}"></td>
-                        <td th:text="*{expireStatus}"></td>
+                        <td th:text="*{status}"></td>
                         <td th:if="${#httpServletRequest.getRequestURI().contains('/expire')}">
-                            <a th:href="@{/expire/view/{id}(id=*{jobId})}" class="btn btn-info">View</a>
-                            <a th:href="@{/expire/edit/{id}(id=*{jobId})}" class="btn btn-primary">Edit</a>
-                            <a th:href="@{/expire/delete/{id}/{page}(id=*{jobId}, page=${currentPage})}" class="btn btn-danger delBtn">Delete</a>
+                            <a th:href="@{/expire/view/{postId}(postId=*{postId})}" class="btn btn-info">View</a>
+                           
+                            <a th:href="@{/expire/delete/{postId}/{page}(postId=*{postId}, page=${currentPage})}" class="btn btn-danger delBtn">Delete</a>
                         </td>
                     </tr>
                     </tbody>

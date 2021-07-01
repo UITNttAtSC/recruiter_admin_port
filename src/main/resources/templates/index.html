@@ -23,9 +23,9 @@
             <div class="row">
                 <div class="container col-3 bg-light ml-1 p-3">
                     <div class="row">
-                        <div class="col-6"><img th:src="@{/image/user.png}" alt="image" width="105" height="100"></div>
-                        <div class="col-6">
-                            <h5 class="card-title">User ([[${userCount}]])</h5>
+                        <div class="col-4"><img th:src="@{/image/user.png}" alt="image" width="80" height="100"></div>
+                        <div class="col-4">
+                            <h5 class="card-title">User([[${userCount}]])</h5>
                             <a th:href="@{/user}" class="btn btn-primary">View</a>
                         </div>
                     </div>
@@ -33,10 +33,20 @@
 
                 <div class="container col-3 bg-light ml-1 p-3">
                     <div class="row">
-                        <div class="col-6"><img th:src="@{/image/job.png}" alt="image" width="105" height="100"></div>
-                        <div class="col-6">
-                            <h5 class="card-title">Jobs ([[${jobCount}]])</h5>
+                        <div class="col-4"><img th:src="@{/image/job.png}" alt="image" width="80" height="100"></div>
+                        <div class="col-4">
+                            <h5 class="card-title">Jobs([[${jobCount}]])</h5>
                             <a th:href="@{/job}" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container col-3 bg-light ml-1 p-3">
+                    <div class="row">
+                        <div class="col-4"><img th:src="@{/image/job.png}" alt="image" width="80" height="100"></div>
+                        <div class="col-4">
+                            <h5 class="card-title">Pending ([[${jobPendingCount}]])</h5>
+                            <a th:href="@{/review}" class="btn btn-primary">View</a>
                         </div>
                     </div>
                 </div>
@@ -62,9 +72,9 @@
                         <td th:text="${(iter.index + 1)}"></td>
                         <td th:text="*{jobTitle}"></td>
                         <td th:text="${@dateDiffUtility.getDiffHour(job.approvedDate)}"></td>
-                        <td th:text="*{jobStatus}"></td>
+                        <td th:text="*{status}"></td>
                         <td>
-                            <a th:href="@{/job/view/{id}(id=*{jobId})}" class="btn btn-info">View</a>
+                            <a th:href="@{/job/view/{postId}(postId=*{postId})}" class="btn btn-info">View</a>
                         </td>
                     </tr>
                     </tbody>

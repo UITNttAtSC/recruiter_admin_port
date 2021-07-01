@@ -32,11 +32,11 @@
                     <tr th:each="job, iter: ${jobs}" th:object="${job}">
                         <td th:text="${(iter.index + 1) + (30 * (currentPage -1))}"></td>
                         <td th:text="*{jobTitle}"></td>
-                        <td th:text="*{updateDate}"></td>
-                        <td th:text="*{jobStatus}"></td>
+                        <td th:text="*{updatedAt}"></td>
+                        <td th:text="*{status}"></td>
                         <td>
-                            <a th:href="@{/review/edit/{id}(id=*{jobId})}" class="btn btn-primary">Edit</a>
-                            <a th:href="@{/review/delete/{id}/{page}(id=*{jobId}, page=${currentPage})}" class="btn btn-danger delBtn">Delete</a>
+                            <a th:href="@{/review/edit/{postId}(postId=*{postId})}" class="btn btn-primary">Edit</a>
+                            <a th:href="@{/review/delete/{postId}/{page}(postId=*{postId}, page=${currentPage})}" class="btn btn-danger delBtn">Delete</a>
                         </td>
                     </tr>
                     </tbody>

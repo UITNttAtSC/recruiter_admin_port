@@ -1,6 +1,5 @@
 package com.jobseeker.adminportal.controller;
 
-import com.jobseeker.adminportal.domain.Job;
 import com.jobseeker.adminportal.domain.User;
 import com.jobseeker.adminportal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,15 +40,17 @@ public class UserController {
     }
 
     @GetMapping("/delete/{id}/{page}")
-    public String deleteJob(@PathVariable(value = "id") long id,
+    public String deleteJob(@PathVariable(value = "id") long userId,
                             @PathVariable(value = "page") int page,
                             RedirectAttributes redirectAttributes,
                             Model model) {
-        User user = userService.getById(id);
-        this.userService.deleteById(id);
+    	
+    	//Long uid = Long.parseLong(userId);
+        User user = userService.findById(userId);
+        userService.deleteById(userId);
 
         redirectAttributes.addFlashAttribute("notification",
-                String.format("User:\"%s\" successfully delete", user.getName()));
+                String.format("User:\"%s\" successfully delete", user.getUsername()));
         redirectAttributes.addFlashAttribute("action", "delete");
 
         return "redirect:/user/page/" + page;

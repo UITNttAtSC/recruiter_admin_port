@@ -3,11 +3,8 @@ package com.jobseeker.adminportal.util;
 import com.jobseeker.adminportal.common.JobExpireStatus;
 import com.jobseeker.adminportal.common.JobStatus;
 import com.jobseeker.adminportal.common.JobType;
-import com.jobseeker.adminportal.domain.Job;
 import com.jobseeker.adminportal.domain.User;
-import com.jobseeker.adminportal.repository.JobRepository;
 import com.jobseeker.adminportal.repository.UserRepository;
-import com.jobseeker.adminportal.service.JobService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -26,8 +23,8 @@ import java.util.stream.Collectors;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class JobMock {
-	@Autowired
-	JobRepository jobRepository;
+//	@Autowired
+//	JobRepository jobRepository;
 
 	@Autowired
 	UserRepository userRepository;
@@ -78,26 +75,26 @@ public class JobMock {
 	 * @Test public void countTest() { System.out.println(jobRepository.count()); }
 	 */
 
-	@Test
-	public void pageNoTest() {
-		Job job = jobRepository.findById(49l).get();
-		long count = (jobRepository.getCountById(job.getApprovedDate()));
-		System.out.println(count / 30);
-		System.out.println(Math.ceil(count / 30));
-
-	}
-
-	@Test
-	public void getRecentTenJobsTest() {
-		List<Job> jobs = (jobRepository.getRecentTenActiveJobs());
-		System.out.println(jobs);
-	}
-
-	@Test
-	public void getExpiredActiveJobTest() {
-		List<Job> jobs = (jobRepository.getExpiredActiveJob(LocalDateTime.now()));
-		System.out.println(jobs.size());
-		System.out.println(jobs);
-	}
+//	@Test
+//	public void pageNoTest() {
+//		Job job = jobRepository.findById(49l).get();
+//		long count = (jobRepository.getCountById(job.getApprovedDate()));
+//		System.out.println(count / 30);
+//		System.out.println(Math.ceil(count / 30));
+//
+//	}
+//
+//	@Test
+//	public void getRecentTenJobsTest() {
+//		List<Job> jobs = (jobRepository.getRecentTenActiveJobs());
+//		System.out.println(jobs);
+//	}
+//
+//	@Test
+//	public void getExpiredActiveJobTest() {
+//		List<Job> jobs = (jobRepository.getExpiredActiveJob(LocalDateTime.now()));
+//		System.out.println(jobs.size());
+//		System.out.println(jobs);
+//	}
 
 }
